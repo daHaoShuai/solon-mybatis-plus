@@ -1,0 +1,24 @@
+#数据库连接
+test.db1:
+  schema: test
+  jdbcUrl: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=true
+  driverClassName: com.mysql.cj.jdbc.Driver
+  username: root
+  password: 123456
+
+#默认
+mybatis.db1:
+  typeAliases: #支持包名 或 类名（.class 结尾）
+    - "com.da.po"
+  mappers: #支持包名 或 类名（.class 结尾）或 xml（.xml结尾）
+    - "com.da.mapper"
+  configuration:
+    cacheEnabled: false
+    #    驼峰命名
+    mapUnderscoreToCamelCase: true
+    logImpl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  globalConfig:
+    banner: false
+    dbConfig:
+      #      逻辑删除
+      logicDeleteField: "deleted"
